@@ -1,0 +1,115 @@
+var PresenceApi = (function($) {
+
+    var me = {};
+
+    // public parameters need to be set
+    me.config = {};
+    me.config.APPLICATION = null;
+    me.config.ROOT_CONTEXT = null;
+    me.config.CROSS_DOMAIN = false;
+
+    // status options
+    me.status = {};
+    me.status.AVAILABLE_FOR_CUSTOMERS_AND_ENGINEERS = 'AVAILABLE_FOR_CUSTOMERS_AND_ENGINEERS';
+    me.status.AVAILABLE_FOR_ENGINEERS_ONLY = 'AVAILABLE_FOR_ENGINEERS_ONLY';
+    me.status.NOT_AVAILABLE = 'NOT_AVAILABLE';
+    
+    me.init = function() {
+      if (!me.config.ROOT_CONTEXT) {
+        var pathArray = window.location.pathname.split( '/' );
+        if (pathArray.length > 1) {
+          me.config.ROOT_CONTEXT = "/" + pathArray[1] + "/";
+        }
+      }
+    }
+
+    /** 
+     * Used to get the current user presence
+     * 
+     * @param args containing:
+     *          args.success = function(result) - call back to execute when post is successfull
+     *                                            result contains status, result.status
+     *          args.error - call back to execute when post fails
+     *                       handles a generic error, a call without parameter, args.error()
+     *                       and a failed error, a call with parameter args.error(errorMessage)
+     */
+    me.getPresencePreference = function(args) {
+      if (me.config.ROOT_CONTEXT && me.config.APPLICATION) {
+        var q = "?action=get&application=" + me.config.APPLICATION;
+        
+        $.ajax({
+          url: me.config.ROOT_CONTEXT + "/rest/mos/chat/1.0/user-presence.jsp" + q,
+          type: "GET",
+          dataType: 'json',
+          crossDomain: me.config.CROSS_DOMAIN,
+          xhrFields: {
+            withCredentials: me.config.CROSS_DOMAIN
+          },
+          success: function( result ) {
+            if (result.success) {
+              if (args && args.success && typeof(args.success) === 'function') {
+                args.success(result);
+              }
+            } else {
+              if (args && args.error && typeof(args.error) === 'function') {
+                args.error({error: result.error});
+              }
+            }
+          },
+          error: function() {
+            if (args && args.error && typeof(args.error) === 'function') {
+              args.error();
+            }
+          }
+        });
+      }
+    };
+    
+    /** 
+     * Used to set the current user presence
+     * 
+     * @param args containing:
+     *          args.status - one of the status options:
+     *            - PresenceApi.status.AVAILABLE_FOR_CUSTOMERS_AND_ENGINEERS
+     *            - PresenceApi.status.AVAILABLE_FOR_ENGINEERS_ONLY
+     *            - PresenceApi.status.NOT_AVAILABLE
+     *          args.success = function(result) - call back to execute when post is successfull
+     *                                            result contains status, result.status
+     *          args.error - call back to execute when post fails
+     *                       handles a generic error, a call without parameter, args.error()
+     *                       and a failed error, a call with parameter args.error(errorMessage)
+     */
+    me.setPresencePreference = function(args) {
+      if (me.config.ROOT_CONTEXT && me.config.APPLICATION && typeof(args.status) !== 'undefined') {
+        var q = "?action=set&application=" + me.config.APPLICATION + "&status=" + args.status;
+        
+        $.ajax({
+          url: me.config.ROOT_CONTEXT + "/rest/mos/chat/1.0/user-presence.jsp" + q,
+          type: "GET",
+          dataType: 'json',
+          crossDomain: me.config.CROSS_DOMAIN,
+          xhrFields: {
+            withCredentials: me.config.CROSS_DOMAIN
+          },
+          success: function( result ) {
+            if (result.success) {
+              if (args && args.success && typeof(args.success) === 'function') {
+                args.success(result);
+              }
+            } else {
+              if (args && args.error && typeof(args.error) === 'function') {
+                args.error({error: result.error});
+              }
+            }
+          },
+          error: function() {
+            if (args && args.error && typeof(args.error) === 'function') {
+              args.error();
+            }
+          }
+        });
+      }
+    };
+
+    return me;
+}(jQuery));

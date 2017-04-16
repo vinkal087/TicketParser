@@ -1,0 +1,170 @@
+<ul><li><a href="#3-14371578691">SR 3-14371578691: (Closed) AR Invoice Tax GL posting Issue</a></li></ul><table border=1><tr style="background-color:#FDF5E6;"><th>SR Details</th><th>ODM Issue Clarification</th><th>ODM Cause Determination</th><th>ODM Cause Justification</th><th>ODM Solution/Action Plan</th><th>ODM Proposed Solution</th><th>ODM Knowledge Content</th></tr><tr style="white-space:nowrap;"><td id="3-14371578691">3-14371578691<br/>XIAOXUAN.DOU@ORACLE.COM<br/>04-Apr-2017 05:29:35 AM</td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6M04HOW">
+ On : &nbsp;12.1.3 version, India AR Localizations
+ <br>
+ <br>ACTUAL BEHAVIOR &nbsp;
+ <br>---------------
+ <br>AR Invoice GL posting Issue &nbsp;
+ <br>
+ <br>
+ <br>EXPECTED BEHAVIOR
+ <br>-----------------------
+ <br>AR Invoice has to be generated correctly 
+ <br>
+ <br>STEPS
+ <br>-----------------------
+ <br>The issue can be reproduced at will with the following steps:
+ <br>1. Create an Invoice 
+ <br>2. Complete the transaction 
+ <br>3. Run create accounting 
+ <br>
+ <br>BUSINESS IMPACT
+ <br>-----------------------
+ <br>The issue has the following business impact:
+ <br>Due to this issue, users cannot &nbsp;View correct accounting 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6PHY5GD">
+ @fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only
+ <br>_
+ <br>mode: Y
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>This should list your Invoice in question.
+ <br>If this is listed run the following.
+ <br>
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only_mode: &nbsp; N
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>Important: Perform a commit
+ <br>
+ <br>commit;
+ <br>
+ <br>. run create accounting program
+ <br>
+ <br>Thanks,
+ <br>Daisy 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6PHY5GK">
+ Customer Visible
+ <br> [Open Update screen] [Double Click on Activity Text to enable Save operation] [Audit]
+ <br>Dear customer,
+ <br>
+ <br>Could you please kindly prepare a testing instance and execute attached script and let me know if this issue can be resolved
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only
+ <br>_
+ <br>mode: Y
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>This should list your Invoice in question.
+ <br>If this is listed run the following.
+ <br>
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only_mode: &nbsp; N
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>Important: Perform a commit
+ <br>
+ <br>commit;
+ <br>
+ <br>. run create accounting program
+ <br>
+ <br>Thanks,
+ <br>Daisy 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6PHY5GZ">
+ Could you please kindly prepare a testing instance and execute attached script and let me know if this issue can be resolved
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only
+ <br>_
+ <br>mode: Y
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>This should list your Invoice in question.
+ <br>If this is listed run the following.
+ <br>
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only_mode: &nbsp; N
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>Important: Perform a commit
+ <br>
+ <br>commit;
+ <br>
+ <br>. run create accounting program 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6PHY5GP">
+ Could you please kindly prepare a testing instance and execute attached script and let me know if this issue can be resolved
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only
+ <br>_
+ <br>mode: Y
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>This should list your Invoice in question.
+ <br>If this is listed run the following.
+ <br>
+ <br>
+ <br>@fix_trx_undo_acct_v1.sql
+ <br>parameters:
+ <br>===========
+ <br>&amp;org_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: &lt;Enter org id&gt;
+ <br>&amp;cust_trx_id &nbsp; &nbsp; &nbsp; &nbsp; : &lt;Enter Customer trx id&gt;
+ <br>&amp;read_only_mode: &nbsp; N
+ <br>&amp;start_gl_date &nbsp; &nbsp; : &lt;Enter beginning gl date of period example: 01-NOV-2015&gt;
+ <br>&amp;end_gl_date &nbsp; &nbsp; &nbsp;: &lt;Enter ending gl date of period example: 30-NOV-2015&gt;
+ <br>&amp;new_gl_date &nbsp; &nbsp; : &nbsp;&lt;Enter beginning gl date of the period example: 01-NOV-2015&gt;
+ <br>
+ <br>Important: Perform a commit
+ <br>
+ <br>commit;
+ <br>
+ <br>. run create accounting program 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6PHZO3L">
+ Knowledge Review completed. 
+</div></td></tr></table>

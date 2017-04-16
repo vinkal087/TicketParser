@@ -1,0 +1,101 @@
+<ul><li><a href="#3-14397174081">SR 3-14397174081: (Closed) Difference while comparing Aging report with Register reports (Transaction, Receipt etc..)</a></li></ul><table border=1><tr style="background-color:#FDF5E6;"><th>SR Details</th><th>ODM Issue Clarification</th><th>ODM Cause Determination</th><th>ODM Cause Justification</th><th>ODM Solution/Action Plan</th><th>ODM Proposed Solution</th><th>ODM Knowledge Content</th></tr><tr style="white-space:nowrap;"><td id="3-14397174081">3-14397174081<br/>IOANA.IONESCU@ORACLE.COM<br/>15-Mar-2017 03:30:00 AM</td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6M6BJF3">
+ Aging 4 Bucket = (Transaction Register - Receipt Register) should match????? 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6O3NC9L">
+ Wrongly comparing Aging 4 Buckets with Transaction Register -Receipt Register 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6O3NC9O">
+ Wrongly comparing Aging 4 Buckets with Transaction Register -Receipt Register 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6O3NC9X">
+ <br>Invoice &nbsp; &nbsp;840113 &nbsp; has a total amount of 8.936.301,52 USD.
+ <br>
+ <br>Until 31-JAN-2017 has the below applications:
+ <br>
+ <br>GL DATE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AMOUNT APPLIED
+ <br>12-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8884637.93
+ <br>13-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;43353.65
+ <br>14-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;500.74
+ <br>17-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2284.08
+ <br>23-JAN-17 &nbsp; &nbsp; &nbsp; 3700.01
+ <br>23-JAN-17 &nbsp; &nbsp; - 3700.01
+ <br>
+ <br>On 23 of January it was applied and then unapplied .
+ <br>
+ <br>The amount remaining of this invoice at 31-JAN-2017 &nbsp;IS: &nbsp;
+ <br>8.936.301,52 - &nbsp;8884637.93- &nbsp; 43353.65 - &nbsp;500.74 - &nbsp;2284.08 &nbsp;= 5525,12
+ <br>
+ <br>THIS IS THE AMOUNT YOU HAVE IN &nbsp;Aging 4 Bucket Report, as of GL date 31-JAN-2017
+ <br>=====================================================================
+ <br>
+ <br>Further the invoice has the below applications with GL DATE 01-FEB-2017
+ <br>
+ <br>GL DATE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AMOUNT APPLIED
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;84.38
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.01
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;26.94
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;29.44
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;71.44
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12.5
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 26.44
+ <br>
+ <br>
+ <br>The amount remaining for the invoice now it will be:
+ <br>5525,12 - &nbsp; 84.38 - &nbsp; 0.01 - &nbsp;26.94 - &nbsp;29.44 &nbsp;- 71.44 - &nbsp;12.5 - &nbsp;26.44 = &nbsp; 5,273.97
+ <br>
+ <br>
+ <br>THIS IS THE AMOUNT YOU HAVE IN &nbsp;Aging 4 Bucket Report, as of GL date 01-FEB-2017.
+ <br>
+ <br>
+ <br>So here is where you have "the difference " from and this is why the method you are using is not quite correct. &nbsp; Because you are taking into account the transactions and the receipts which are new or fully applied and not taking into account you might have invoices which are not fully applied and exist in Aging 4 Bucket Report with different amounts in different dates.
+ <br>
+ <br>
+ <br>Furthermore the applications of this invoice continues with applications on 06-FEB-17 and &nbsp; 23-FEB-17 and &nbsp; &nbsp; 27-FEB-17.
+ <br>
+ <br>At this point the amount remaining of this invoice is 860.32 . 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6O3NC9R">
+ <br>Invoice &nbsp; &nbsp;840113 &nbsp; has a total amount of 8.936.301,52 USD.
+ <br>
+ <br>Until 31-JAN-2017 has the below applications:
+ <br>
+ <br>GL DATE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AMOUNT APPLIED
+ <br>12-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8884637.93
+ <br>13-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;43353.65
+ <br>14-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;500.74
+ <br>17-OCT-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2284.08
+ <br>23-JAN-17 &nbsp; &nbsp; &nbsp; 3700.01
+ <br>23-JAN-17 &nbsp; &nbsp; - 3700.01
+ <br>
+ <br>On 23 of January it was applied and then unapplied .
+ <br>
+ <br>The amount remaining of this invoice at 31-JAN-2017 &nbsp;IS: &nbsp;
+ <br>8.936.301,52 - &nbsp;8884637.93- &nbsp; 43353.65 - &nbsp;500.74 - &nbsp;2284.08 &nbsp;= 5525,12
+ <br>
+ <br>THIS IS THE AMOUNT YOU HAVE IN &nbsp;Aging 4 Bucket Report, as of GL date 31-JAN-2017
+ <br>=====================================================================
+ <br>
+ <br>Further the invoice has the below applications with GL DATE 01-FEB-2017
+ <br>
+ <br>GL DATE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AMOUNT APPLIED
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;84.38
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.01
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;26.94
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;29.44
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;71.44
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12.5
+ <br>01-FEB-17 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 26.44
+ <br>
+ <br>
+ <br>The amount remaining for the invoice now it will be:
+ <br>5525,12 - &nbsp; 84.38 - &nbsp; 0.01 - &nbsp;26.94 - &nbsp;29.44 &nbsp;- 71.44 - &nbsp;12.5 - &nbsp;26.44 = &nbsp; 5,273.97
+ <br>
+ <br>
+ <br>THIS IS THE AMOUNT YOU HAVE IN &nbsp;Aging 4 Bucket Report, as of GL date 01-FEB-2017.
+ <br>
+ <br>
+ <br>So here is where you have "the difference " from and this is why the method you are using is not quite correct. &nbsp; Because you are taking into account the transactions and the receipts which are new or fully applied and not taking into account you might have invoices which are not fully applied and exist in Aging 4 Bucket Report with different amounts in different dates.
+ <br>
+ <br>
+ <br>Furthermore the applications of this invoice continues with applications on 06-FEB-17 and &nbsp; 23-FEB-17 and &nbsp; &nbsp; 27-FEB-17.
+ <br>
+ <br>At this point the amount remaining of this invoice is 860.32 . 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6O3NCA8">
+ Knowledge Review completed. 
+</div></td></tr></table>

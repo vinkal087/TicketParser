@@ -1,0 +1,557 @@
+/* Copyright (c) 2008 SitePen Inc. All rights reserved. */
+
+/* based on dojo svn trunk/dojo/tests/dnd/dndDefault.css */
+
+/*
+
+	there are basically all the classes you can set 
+	for the various dojo.dnd states and elements in
+	their simplest form. hacking welcome. 
+
+*/
+
+.dojoDndItem { 
+	padding:3px; 
+}
+
+.dojoDndItemOver {
+	background-color: #ededed;
+	cursor:pointer;
+}
+
+.dojoDndItemSelected {
+	background-color: #5bbdea; color: #444;
+}
+
+.dojoDndItemAnchor {
+	background-color: #5bbdea; color: black;
+}
+
+.dojoDndItemOver .dojoDndItemSelected {
+	background-color: #ededed;
+}
+
+.dojoDndItemOver .dojoDndItemAnchor {
+	background-color: #ededed;
+}
+
+.dojoDndItemBefore {
+	border-top: 2px solid #369;
+}
+
+.dojoDndItemAfter {
+	border-bottom: 2px solid #369;
+}
+
+.dojoDndAvatar {
+	border:2px solid #ccc;
+}
+	
+.dojoDndAvatarHeader {
+	background-color: #aaa;
+}
+
+.dojoDndAvatarItem {
+	background-color: #fff;
+	border-bottom:1px solid #666;
+}
+
+.dojoDndAvatarItem .itemText {
+	font-size: 120%;
+}
+.transfergreycell {
+    background-color:#F1F1F1;
+}
+.transfer_hidden {
+    display:none;
+}
+.transfer_mandatory {
+    color:red;
+}
+.transfer_information {
+    background-color:#CCCCFF;
+    color:#6633CC;
+    font-weight:bold;
+}
+.transfer_information_attribute_label {
+    font-weight:bold;
+    font-size:12px;
+    text-align: right;
+    width: 100px;
+}
+.transfer_information_attribute_value {
+    background-color:#F1F1F1;
+}
+.transfer_page_header {
+    color:#666;
+    font-size:20px;
+    text-align:center;
+}
+.transfer_search_button{
+    cursor: pointer;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.transfer_new_input {
+    width: 85%;
+    height: 18px;
+    font-size:12px;
+}
+.transfer_input_readonly {
+    background-color:#CCC;
+}.tundra .dijitImageAccordionDropDownMenu .dijitDropDownButton .dijitButtonNode {
+	
+	
+	border:1px solid #c0c0c0;
+	border-bottom:1px solid #9b9b9b;
+	border-right:1px solid #9b9b9b;
+	padding: 0.0em;
+	background:#fff url(../../js/dijit/themes/tundra/images/buttonEnabled.png) repeat-x left;
+}
+
+.dijitToolbar .dijitButton, .dijitToolbar .dijitDropDownButton { margin: 0px; }
+.dijitToolbar .dijitToggleButtonSelected BUTTON, .dijitToolbar .dijitToggleButtonSelectedHover BUTTON { border-width: 3px; }
+#select, #select2 {
+		width:255px;
+		height:300px;
+		overflow:auto;}
+                
+#programatic {
+                width:100px;
+		height:100px;
+		border:2px solid #333; 
+		position:relative;}           
+                        
+.spNowrap {
+	white-space:nowrap;
+}
+.spNowrapHeight {
+	height: auto;
+}
+                        
+.almostFullLength{
+    width: 99%;
+}
+.fullLength{
+    width: 100%;
+} 
+
+.noteIcon {
+	background-image: url(../../images/note.gif);
+	background-repeat: no-repeat; 
+	width: 20px;
+	height: 12px;
+}
+
+.workflowIcon {
+	background-image: url(../../images/workflow.gif);
+	background-repeat: no-repeat; 
+	width: 20px;
+	height: 15px;
+}
+
+.widgetViewEditIcon{ 
+	background-image: url(../../images/update_ena.png);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+}
+.widgetAddSectionIcon{ 
+	background-image: url(../../images/add.gif);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }
+.widgetTickIcon{ 
+	background-image: url(../../images/tick.png);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }    
+ .widgetCrossIcon{ 
+	background-image: url(../../images/cross.png);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }
+ .widgetReorderIcon{ 
+	background-image: url(../../images/default_status.gif);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }    
+ .widgetRenameIcon{ 
+	background-image: url(../../images/tree_response.gif);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }
+ .widgetCreateIcon{ 
+	background-image: url(../../images/toolbar_create.gif);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+       }  
+ .microsPunchOutIcon{ 
+	background-image: url(../../../../common/images/selected-icon.gif);
+	background-repeat: no-repeat; 
+	width: 15px;
+	height: 15px;
+       }       
+       
+   
+.dojoDndAvatar {font-size: 75%; color: black;}
+  .dojoDndAvatar td {padding-left: 20px; padding-right: 4px;height:20px}
+  .dojoDndAvatarHeader {background: #ccc; background-repeat: no-repeat;}
+   .dojoDndAvatarItem {background: #eee;}
+   .dojoDndMove .dojoDndAvatarHeader {background-image: url(js/dojo/resources/images/dndNoMove.png);}
+    .dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader {background-image: 
+                url(js/dojo/resources/images/dndMove.png);}
+        
+
+table.manageView {
+	border-width: 1px;
+    	border-spacing:0px ;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+table.manageView th {
+	border-width: 1px;
+        text-align: center;
+	padding: 1px;
+	border-style: solid;
+	border-color: gray;
+	background-color: #E4E4E4;
+	-moz-border-radius: ;
+        font-weight: bolder; 
+        color: black;
+}
+
+.manageViewLabel {
+	text-align: left;
+	padding: 1px;
+        -moz-border-radius: ;
+        font-weight: bolder; 
+        color: black;
+}
+
+
+table.manageView td {
+	border-width: 1px;
+	padding: 0px;
+	border-style: solid;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+        }
+
+  
+.formQuestion {
+				
+				font-weight:900;
+				font-family:Verdana, Arial, sans-serif;
+				font-size:0.8em;
+				color:#5a5a5a;
+                                text-align: center;
+                               
+			}
+			
+       
+.noticeMessageRight {
+				display: block;
+				float: right;
+				font-weight: normal;
+				font-family:Arial, Verdana, sans-serif;
+				color:#663;
+				font-size:9px;
+                               
+			}
+.recCountTypeClass {
+				display: inline;
+				float: left;
+				font-weight: normal;
+				font-family:Arial, Verdana, sans-serif;
+				color:#663;
+				font-size:9px;
+                               
+                               
+                               
+                               
+			}                        
+.aqValidationMessage {
+				display: block;
+				float: left;
+				font-weight: bold;
+				font-family:Arial, Verdana, sans-serif;
+				font-size:0.8em;
+			}
+.success {
+				color: #007000;
+				
+			}
+
+/*** IGOVAERT 08-Feb-2010 Accessibility Colour Contrast Fix - Changed colour from  #C11C24 to #8B0000 (dark red)  ***/
+.failed {
+				color: #8B0000;
+				
+			}
+
+
+  body {
+                  font-size: 0.9em;
+                   font-family: Geneva, Arial, Helvetica, sans-serif;
+               }
+         .heading {
+                        font-weight: bold;
+                        padding-bottom: 0.25em;
+                }
+                               
+#grid {
+          border: 1px solid #333;
+          width: 100%;
+          height: 280px;
+      } 
+
+.plusIcon {
+	background-image: url(../../images/add.gif);
+        background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+} 
+
+.tundra .dijitTextBoxDisabled {
+background:#E4E4E4 url(../../js/dijit/themes/tundra/images/buttonDisabled.png) repeat-x scroll center top;
+border-color:#D5D5D5 rgb(189, 189, 189) rgb(189, 189, 189) rgb(213, 213, 213);
+
+}
+
+.tundra .dijitTextBoxReadOnly{
+background-color:#E4E4E4;
+background-image:none;
+border-color:#D5D5D5 rgb(189, 189, 189) rgb(189, 189, 189) rgb(213, 213, 213);
+}
+
+.tundra .dijitTextAreaReadOnly {
+background-color:#E4E4E4;
+background-image:none;
+border-color:#D5D5D5 rgb(189, 189, 189) rgb(189, 189, 189) rgb(213, 213, 213);
+}
+
+.tundra .dijitComboBoxReadOnly {
+background-color:#E4E4E4;
+background-image:none;
+border-color:#D5D5D5 rgb(189, 189, 189) rgb(189, 189, 189) rgb(213, 213, 213);
+}
+
+.tundra .dijitToggleButton .dijitButtonText{
+    font-size: 8pt;
+}
+
+.tundra .dijitTitlePaneTextNode {
+    color: black;
+}
+
+.dijitTextArea {
+    font-size: 8pt;
+    font-family: Arial,Helvetica,Geneva,sans-serif; }
+
+.tundra .dataNavigatorTitle{
+    background: rgb(218,231,246) url("../../js/dijit/themes/tundra/images/accordionItemActiveBlue.png") repeat-x bottom left;
+    border-top: 1px solid rgb(153,187,232);
+    padding: 6px 4px 6px 8px;
+}
+
+.tundra .dataNavigatorHeading{
+    background: rgb(218,231,246) url("../../js/dijit/themes/tundra/images/accordionItemActiveBlue.png") repeat-x bottom left;
+    border-top: 1px solid rgb(153,187,232);
+    padding: 6px 4px 6px 8px;
+    font-size: 8pt;
+    font-weight: bold;    
+    margin-bottom:0;
+    margin-top:0;    
+}
+
+.tundra .dijitTab {
+       font-size: 8pt;
+       font-family: Arial,Helvetica,Geneva,sans-serif;
+       } 
+
+td{
+    font-size: 8pt;
+    font-family: Arial,Helvetica,Geneva,sans-serif;
+  }
+th{
+    font-size: 8pt;
+    font-family: Arial,Helvetica,Geneva,sans-serif;
+  }
+
+
+/* the checked menu item 
+.dijitCheckedMenuItemIconChar {
+	vertical-align: middle;
+	visibility:hidden;
+}
+.dijitCheckedMenuItemIconChecked .dijitCheckedMenuItemIconChar {
+	visibility:visible !important;
+}
+.dijit_a11y .dijitCheckedMenuItemIconChar {
+	display:block !important;
+}
+
+*/
+/* the checked menu item */
+
+.tundra .dijitCheckedMenuItemIconChar {
+	display: none;
+}
+
+.tundra .dijitCheckedMenuItemIcon {
+	background-image: url('../../images/checkmark.png');
+	background-position: -16px;
+}
+
+.dj_ie6 .tundra .dijitCheckedMenuItemIcon {
+	background-image: url('../../images/checkmark.gif');
+}
+
+.tundra .dijitCheckedMenuItemIconChecked {
+	background-position: 0px;
+}
+
+.tundra .dijitMenuItemHover .dijitCheckedMenuItemIcon {
+	background-position: -80px;
+}
+
+.tundra .dijitMenuItemHover .dijitCheckedMenuItemIconChecked {
+	background-position: -64px;
+}
+.rowHidden {
+          color: red;
+          font-style: italic;
+          visibility: hidden;
+          height: 0px;
+}   
+
+.spGreen {
+      color: #007000;
+}
+
+/*** IGOVAERT 08-Feb-2010 Accessibility Colour Contrast Fix - Changed colour from  #C11C24 to #8B0000 (dark red)  ***/
+.spRed{
+      color: #8B0000;
+}
+
+.dijitAccordionPane {
+    font-size: 8pt;
+
+}
+.dijitTitlePane {
+    font-size: 8pt;
+
+}
+.dijitDialog{
+    font-size: 8pt;
+
+   
+}
+
+.tundra .dijitButtonNode, .dijitButton {
+    font-size: 8pt;
+    margin: 0px;
+    padding: 0px; 
+  }
+ /*
+.tundra .dijitCheckBoxReadOnly {
+     background-position:-48px 50%;
+ }
+ */
+ 
+ 
+.tundra .spInvalidInput {
+      background: yellow url(../../js/dijit/themes/tundra/images/warning.png) no-repeat right center;
+}
+
+
+
+.tundra .dijitMenuItemHover {
+	/*background-color: #60a1ea;*/
+        background-color: #1463CB;
+	color:#fff;
+}
+
+
+.spTermOdd {
+	color:black;
+        cursor:pointer;
+}
+.spTermEven {
+	color:blue;
+        cursor:pointer;
+}
+.onsite_hidden {
+   visibility:hidden;
+}
+.onsite_visible {
+   visibility:visible;
+}
+.parentAsset_hidden {
+   visibility:hidden;
+}
+.parentAsset_visible {
+   visibility:visible;
+}
+.taskSRLink_disabled {
+   pointer-events: none;
+   cursor: default;
+}
+.taskSRLink_enabled {
+   pointer-events: auto;
+   cursor: default;
+}
+/* POSITIVE */
+
+button.positive, .buttons a.positive{
+    color:#529214;
+}
+.buttons a.positive:hover, button.positive:hover{
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+.buttons a.positive:active{
+    background-color:#529214;
+    border:1px solid #529214;
+    color:#fff;
+}
+
+/* NEGATIVE */
+
+.buttons a.negative, button.negative{
+    color:#d12f19;
+}
+.buttons a.negative:hover, button.negative:hover{
+    background:#fbe3e4;
+    border:1px solid #fbc2c4;
+    color:#d12f19;
+}
+.buttons a.negative:active{
+    background-color:#d12f19;
+    border:1px solid #d12f19;
+    color:#fff;
+}
+
+.copyIcon {
+	background-image: url(../../images/copy.gif);
+	background-repeat: no-repeat; 
+	width: 16px;
+	height: 16px;
+}
+.box {
+				display: block;
+				text-align: center;
+			}
+			.box .dijit {
+				margin-right: 10px;
+			}

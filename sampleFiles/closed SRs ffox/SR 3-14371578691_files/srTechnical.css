@@ -1,0 +1,521 @@
+        .dojoContentPane {
+            padding:0em;
+        }
+    .inlineEdit { background-color: #CCC76A; }
+    
+         
+     .dijitToolbar .dijitButton, .dijitToolbar .dijitDropDownButton {
+         height:14px;
+         font-size: 8pt;
+         font-family: Arial,Helvetica,Geneva,sans-serif;
+         margin: 0px;
+         padding: 0px; }
+
+    .dijitTextArea {
+         font-size: 8pt;
+         font-family: Arial,Helvetica,Geneva,sans-serif; }
+
+   .dijitModArrowNode {
+    float: right;
+    }
+    .dijitButtonNode { padding: 0px !important;
+                     
+    }
+ 
+    #addEditSRChildrenDialog .dijitButtonNode { height: 16px; !important;
+    padding-right: 1px; !important; 
+    margin-right: 1px; !important; 
+    padding-left: 1px; !important; 
+    margin-left: 1px; !important;
+    vertical-align:middle; !important;
+    }
+
+
+    .sropButton { height: 16px; !important; 
+    padding-right: 1px;!important; 
+    margin-right: 1px;!important; 
+    }        
+        body{
+        height: 100%;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+        }
+
+         .conditionalSrReq
+         {
+           display: -moz-inline-box; display: inline-block;
+           white-space: nowrap;
+         }
+         .SrResponseReqHidden
+         {
+
+           display: -moz-inline-box;display: inline-block;
+           white-space: nowrap;
+         }
+         .SrResponseReqVisible
+         {
+           background-image: url(../../images/requiredicon.gif);
+           background-repeat: no-repeat;
+           background-position: top right;
+           width: 16px;
+           height: 16px;
+         }
+         .srattribute {
+                 white-space:nowrap;
+                 text-align:right;
+                 font-weight: bold;
+                 width: 125px;
+         }
+         .srattributeWrap {
+
+                 text-align:right;
+                 width: 140px;
+         }
+         .srinput {
+                 width: 155px;
+                 vertical-align: middle;
+         }
+         .srinput200medium {
+                 width: 200px;
+         }
+         
+         
+         .srinputmedium {
+                 width: 250px;
+         }
+         .srinputlong {
+                 width: 500px;
+         }
+        
+         input[readonly]{ border: 0px solid #CCC; color: #000000;  cursor: not-allowed !important;}
+         input[disabled]{ border: 0px solid #CCC; color: #000000;  cursor: not-allowed !important;}
+         .disabled{ border: 0px solid #CCC; color: #000000; cursor: not-allowed !important;}
+         .readonly{ border: 0px solid #CCC; color: #000000;  }
+ 
+         .srHeaderLabel {
+                 white-space:nowrap;
+                 font-weight: bold;
+                
+         }
+         .srHeaderAttribute {
+                 white-space:nowrap;
+                 text-align:right;
+                 width: 130px;
+         }
+         .bigSrHeaderAttribute {
+                 white-space:nowrap;
+                 text-align:right;
+                 width: 190px;
+         }
+        .srHeaderInput {
+                 width: 145px;
+         }
+        .srHeaderInputLong {
+                 width: 200px;
+         }
+         .srinputlong {
+                 width: 500px;
+         }
+       td{
+        font-size: 8pt;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+
+        }
+       th{
+        font-size: 8pt;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+
+        }
+
+        #grid {
+            border: 1px solid #333;
+            width: 100%;
+                    height: 280px;
+      }
+        #gridSelected {
+            border: 1px solid #333;
+            width: 100%;
+            height: 280px;
+      }
+     #shigrid{
+            border: 1px solid #333;
+            width: 100%;
+            height: 300px;
+      }
+
+       #auditGrid, #updatesGrid, #storageGrid{
+            border: 1px solid #333;
+            width: 100%;
+            height: 300px;
+      }
+      td.odmTrain
+       {
+        text-align: center;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+        font-weight: bold;
+        border: 1px solid #bfbfbf;
+        font-size: 8px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-right: 0px; }
+
+        table.odmTrain
+        {
+        border: 1px solid #bfbfbf;
+        color: black;
+        cellspacing: 0px;
+        cellpadding: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        }
+        div.highlight
+        {
+          background-color: yellow;
+        }
+        .confIcon{
+                background-image: url(../../images/collaboration.gif);
+                background-repeat: no-repeat;
+                width: 17px;
+                height: 14px;
+        }
+   .colorpickerIcon{
+                background-image: url(../../images/color-picker.png);
+                background-repeat: no-repeat;
+                width: 14px;
+                height: 14px;
+                vertical-align:top;
+                padding:0px;
+        }
+.colordisabledIcon{
+                background-image: url(../../images/color-picker-disabled.png);
+                background-repeat: no-repeat;
+                width: 14px;
+                height: 14px;
+                vertical-align:top;
+                padding:0px;
+        }
+        .createWfIcon{
+                background-image: url(../../images/workflow.gif);
+                background-repeat: no-repeat;
+                width: 32px;
+                height: 20px;
+        }
+        .createActionIcon{
+                background-image: url(../../images/toolbar_create.gif);
+                background-repeat: no-repeat;
+                width: 32px;
+                height: 20px;
+        }
+        .EscalationIcon
+         {
+           background-image: url(../../images/escalate.gif);
+           background-repeat: no-repeat;
+           background-position: top left;
+           width: 16px;
+           height: 16px;
+           text-align:left;
+
+         }
+        .EscalationText
+         {
+           font-family: Arial,Helvetica,Geneva,sans-serif;
+           font-weight: bold;
+           color: red;
+           text-align:left;
+           vertical-align:middle;
+         }
+         
+         .AcctClassificationText
+         {
+           font-family: Arial,Helvetica,Geneva,sans-serif;
+           font-weight: bold;
+           color: #C11B17;
+           text-align:left;
+           padding-right:1px;
+           margin-right:1px;
+           vertical-align:middle;
+         }
+       .rowRemoved
+        {
+                color: red;
+               font-style: italic;
+        }
+        .rowHidden
+        {
+          color: red;
+          font-style: italic;
+          visibility: hidden;
+          height: 0px;
+        }         
+       .toggleRight
+       {
+         background-image: url(../../images/toggle_right.gif);
+         background-repeat: repeat-y;
+         background-position: top right;
+       }
+
+       .toggleLeft
+       {
+         background-image: url(../../images/toggle_left.gif);
+         background-repeat: repeat-y;
+         background-position: top right;
+       }
+        
+  .srActivityInstructions
+  {
+    background-color: #F8F8F8;
+    border: 1px solid #D8D8D8;
+    margin-bottom: 2px;
+    width: 100%;
+  }   
+
+  .srActivityHeader
+  {
+    background-color: #F8F8F8;
+    border: 1px solid #D8D8D8;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+  
+  .srActivityTitles
+  {
+    color: #888888;
+  }
+  
+  .srAdfField
+  {
+    text-align: right;
+    vertical-align: top;
+    text-align: right;
+    padding-left: 2px;
+    padding-right: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+   .wizDialogClass
+  {
+     width:1000px;
+     max-height:95%;   
+     font-family:verdana;font-size:8pt;
+     background-color:#FFFFEE;
+     border:2px outset #AAAAAA;
+     z-index:1;
+   }
+   .opDialogClass
+  {
+     width:90%;
+     height:600px;
+     font-family:verdana;font-size:8pt;
+     background-color:#FFFFEE;
+     border:2px outset #AAAAAA;
+     z-index:1;
+   }  
+ 
+   .opDialogHeaderClass
+   {
+       font-family:Arial,Helvetica,Geneva,sans-serif;
+       color:black;
+       font-weight:bold;
+       font-size:10pt;
+       margin-top:5pt;
+   }
+   .opDialogTableHeaderClass
+   {
+       font-family:Arial,Helvetica,Geneva,sans-serif;
+       color:black;
+       font-weight:bold;
+       font-size:8pt;
+       white-space:nowrap;
+       text-align:center;
+      
+       color:black;
+       vertical-align:top;
+       padding:3px 3px 3px 3px;
+ 
+   }
+   .opDialogBCClass
+   {
+        background-color:#BBD2EA;
+ 
+   }
+   .opDialogTableColClass
+   {
+       font-family:Arial,Helvetica,Geneva,sans-serif;
+       color:black;
+       font-size:8pt;
+       white-space:nowrap;
+       text-align:center;
+       color:black;
+       visibility:visible;
+   }
+   .opDialogTableHiddenColClass
+   {
+       display:none;
+   }  
+   
+   .opStatusDialogMedium
+   {
+     width:520px !important;
+     height:135px !important;
+   }
+   
+    .closureStepHeaderClass
+   {
+       font-family:Arial,Helvetica,Geneva,sans-serif;
+       color:black;
+       font-weight:bold;
+       font-size:14pt;
+    
+   }
+   .closureErrorBox
+   {
+     border: 1px solid red;
+       
+       
+   }
+          .tzclass{
+              font-size: 7pt;
+              font-family: Arial,Helvetica,Geneva,sans-serif;
+               text-align:left;
+               vertical-align:middle;
+               white-space: nowrap;
+             
+        }
+        .nonactiveSRLink{
+              
+               vertical-align:middle;
+            
+             
+        }
+         .infoText
+        {
+          color: black;
+          font-style: italic;
+        
+        } 
+        .tipText
+        {
+          color:#336699 ; 
+          vertical-align:middle;
+        }
+         .errorText
+        {
+          color: red;
+          font-style: italic;
+          
+        }   
+         .errorIcon
+        {
+           background-image: url(../../images/erroricon.gif);
+          
+        } 
+          .errorLabel
+        {
+          color: red;
+      
+        }   
+        .errorHighlight
+        {
+          border: 1px solid #FF0000 !important;
+          white-space: nowrap;
+        } 
+        
+         .warningHighlight
+        {
+          border: 4px solid #FFFF00 !important;
+          white-space: nowrap;
+        } 
+        
+        .buttonbar
+        {
+         background-color:#9FC5F8;  
+        }
+        .statusNode
+        {
+            color:blue;
+        }
+ 
+         .errorDiv
+        {
+     
+          display:-moz-inline-stack;
+          display:inline-block;
+          zoom:1;
+          *display:inline;
+   
+        }  
+        .successMsg
+        {
+          color: green;
+          
+          
+        } 
+ 
+ 
+        * html .minwidth {
+            padding-left: 0px;
+          
+        }
+        * html .container{
+            margin-left: 0px;
+            position: relative;
+          
+        }
+
+        .menuBarCol   {white-space:nowrap; position:static; left:0px; vertical-align:middle; padding-bottom:4px;}
+        .menuBarTrain {white-space:nowrap; position:static; left:0px; vertical-align:middle; padding-bottom:4px; overflow:hidden; width:300px}
+
+  /*\*/      
+        * html .minwidth, * html .container, * html .layout {
+            height: 1px;
+        }
+        /**/
+
+
+.table
+{
+   display:table;
+   overflow:hidden;
+}
+
+.table-row
+{
+   display:table-row;
+   vertical-align:middle; 
+}
+
+.table-cell
+{
+   display:table-cell;
+   padding-right:21px;
+   padding-bottom:4px;
+   float:left;
+}
+
+.parentContainer {
+    width: 800px;
+    overflow: auto;
+}
+
+.onsite_hidden {
+   visibility:hidden;
+}
+.onsite_visible {
+   visibility:visible;
+}
+
+.PlatinumCriticalSystemTitleText
+         {
+           font-family: Arial,Helvetica,Geneva,sans-serif;
+           color: #44596b;         
+           vertical-align:middle;
+         }
+         
+         
+a.SRClosureStep6ActionLink 
+{
+ color: #0066FF;
+}

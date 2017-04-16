@@ -1,0 +1,143 @@
+<ul><li><a href="#3-13884727321">SR 3-13884727321: (Closed) Closed Payments created in 11i are displaying on Aging Report in R12</a></li><li><a href="#3-14108819942">SR 3-14108819942: (Closed) Receipt Write-off impact in Aging Report</a></li><li><a href="#3-14121648591">SR 3-14121648591: (Closed) Invalid misc rec transactions not posting, Trial Balance and not matching AR aging for YR closing</a></li><li><a href="#3-14188035941">SR 3-14188035941: (Closed) 7 bucket Aging report shows discrepancy</a></li><li><a href="#3-14401996641">SR 3-14401996641: (Closed) Multiplied Amounts on AR Aging Reports</a></li></ul><table border=1><tr style="background-color:#FDF5E6;"><th>SR Details</th><th>ODM Issue Clarification</th><th>ODM Cause Determination</th><th>ODM Cause Justification</th><th>ODM Solution/Action Plan</th><th>ODM Proposed Solution</th><th>ODM Knowledge Content</th></tr><tr style="white-space:nowrap;"><td id="3-13884727321">3-13884727321<br/>TOM.JOLSTAD@ORACLE.COM<br/>18-Jan-2017 02:06:29 AM</td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6DN0GQS">
+ aging 
+</div></td><td></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6G93JMM">
+ Apply the following patch and rerun aging. &nbsp;Advise results.
+ <br>
+ <br>
+ <br>24521365:R12.AR.B 
+</div></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(215, 227, 188); color: rgb(88, 88, 88);" 1000.9pxpx;'="" id="ndiv_3-6G93JMZ">
+ I have linked a New or Existing Note to the �Related Knowledge� section of the SR for use in problem management. 
+</div></td></tr><tr style="white-space:nowrap;"><td id="3-14108819942">3-14108819942<br/>TAPAS.GHOSH@ORACLE.COM<br/>21-Feb-2017 02:07:50 AM</td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6HPJKKT">
+ In this Receipt there is a Write Off Amount ( Positive &amp; Negative Values) 
+ <br>The Sum Total of Write Off &nbsp;is .01
+ <br>On Test Instance this Write Off Amount was unapplied ( Since impact is only .01)
+ <br>After this unapplication, both the reports are matching.
+ <br>
+ <br>Is there any data corruption in the receipt data? 
+</div></td><td></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6HSUWSZ">
+ Hello Narottam,
+ <br>
+ <br>After analyzing the receipt diagnostics, I observed that there is no data corruption in the receipt. The only thing which I observed is that the total APP amount is 628034.9 which is just 0.1 less than the total receipt amount 628035. Hence, all the applications in the receipt are fine and balanced.
+ <br>
+ <br>Please let me know if you need any further clarification(s). In case no further assistance is required in this SR, please let me know whether I can go ahead and close this SR.
+ <br>
+ <br>Best Regards,
+ <br>Tapas
+ <br>Global Customer Support
+ <br>E-Business Suite - Receivables 
+</div></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(215, 227, 188); color: rgb(88, 88, 88);" 1000.9pxpx;'="" id="ndiv_3-6LJ3NIV">
+ Knowledge content not created because this issue is customer specific and would not benefit anyone else. 
+</div></td></tr><tr style="white-space:nowrap;"><td id="3-14121648591">3-14121648591<br/>HANNE.RIKSHEIM@ORACLE.COM<br/>24-Mar-2017 12:11:50 PM</td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6HONMJS">
+ On : &nbsp;12.2.3 version, Reports Issues
+ <br>
+ <br>When running Create Accounting for DEC-2016 there are several Misc receipts failing with event in error
+ <br>
+ <br>ERROR
+ <br>-----------------------
+ <br>Intercompany journal balancing errored out at fun_bal_pkg.journal_balancing with the following reason:
+ <br>ORA-00979: not a GROUP BY expression
+ <br>
+ <br>BUSINESS IMPACT
+ <br>-----------------------
+ <br>The issue has the following business impact:
+ <br>Due to this issue, users cannot close period DEC-2016 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6KAKN2N">
+ customer created misc receipts with incorrect account in misc_cash table causing the receipts not to process to GL due to BSV value belonging to other ledger 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6KAR5QK">
+ analysis of data 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6KASKOJ">
+ Hi,
+ <br>
+ <br>Following scripts will change the CCID on the misc receipts in question:
+ <br>
+ <br>
+ <br>--1. Make backup
+ <br>create &nbsp; table ar_misc_bck
+ <br>as &nbsp; &nbsp; &nbsp; select *
+ <br>from &nbsp; &nbsp; ar_misc_cash_distributions_all
+ <br>where &nbsp; &nbsp;code_combination_id = 1726 &nbsp;
+ <br>and &nbsp; &nbsp; &nbsp;posting_control_id = -3
+ <br>and &nbsp; &nbsp; &nbsp;gl_date = to_date('01-DEC-2016','dd-mon-yyyy');
+ <br>
+ <br>
+ <br>--2. update account
+ <br>update &nbsp; ar_misc_cash_distributions_all
+ <br>set &nbsp; &nbsp; &nbsp;code_combination_id = 5491
+ <br>where &nbsp; &nbsp;code_combination_id = 1726 &nbsp;
+ <br>and &nbsp; &nbsp; &nbsp;posting_control_id = -3
+ <br>and &nbsp; &nbsp; &nbsp;gl_date = to_date('01-DEC-2016','dd-mon-yyyy');
+ <br>
+ <br>update &nbsp; ar_distributions_all
+ <br>set &nbsp; &nbsp; &nbsp;code_combination_id = 5491
+ <br>where &nbsp; &nbsp;code_combination_id = 1726 
+ <br>and &nbsp; &nbsp; &nbsp;source_id in (select misc_cash_distribution_id from ar_misc_bck)
+ <br>and &nbsp; &nbsp; &nbsp;source_type = 'MISCCASH';
+ <br>
+ <br>commit;
+ <br>
+ <br>
+ <br>Run Draft accounting and verify if receipts are processing ok.
+ <br>
+ <br>Thanks
+ <br>Hanne 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6KAR5QP">
+ sql update to change CCID for the misc receipts 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(255, 228, 181); color: rgb(88, 88, 88);" 960.7199999999999pxpx;'="" id="ndiv_3-6OOF224">
+ I have linked a New or Existing Note to the �Related Knowledge� section of the SR for use in problem management. 
+</div></td></tr><tr style="white-space:nowrap;"><td id="3-14188035941">3-14188035941<br/>MAYLIN.MOREIRA-CAMPESINO@ORACLE.COM<br/>01-Mar-2017 02:08:25 AM</td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6IP6NYF">
+ On : &nbsp;12.1.2 version, Reports Issues
+ <br>
+ <br>The 7 bucket Aging report when run on different dates but using the same 'as of date' and GL dates shows discrepancy in amounts.The discrepancy accounts to the payments whose status moved from 'unidentified' to 'unapplied'.
+ <br>Is this the expected behavior? 
+</div></td><td></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(230, 255, 204); color: black;" 1000.9pxpx;'="" id="ndiv_3-6M2AX2F">
+ Hello Sushma -
+ <br>
+ <br>I cannot see the discrepancy in the amounts in the information uploaded.
+ <br>
+ <br>It seems that only one report was uploaded.
+ <br>
+ <br>ACTION PLAN
+ <br>============
+ <br>1) Please provide reports output where seeing the discrepancies.
+ <br>
+ <br>2) Please provide log files for outputs in step 1
+ <br>
+ <br>3) Are you using this for reconciliation purposes? 
+</div></td><td></td><td><div style="overflow: auto; height: auto; background-color: rgb(215, 227, 188); color: rgb(88, 88, 88);" 1000.9pxpx;'="" id="ndiv_3-6M2AX2K">
+ Knowledge content not created because the questions asked are already covered in the Oracle documentation: 
+ <br>
+ <a href="http://docs.oracle.com/cd/E18727_01/doc.121/e13522.pdf" name="contextTextUrl_1492314940738" onclick="window.open('http://docs.oracle.com/cd/E18727_01/doc.121/e13522.pdf');return false;" oncontextmenu="" style="vertical-align:top;" target="_blank" title="Click (or CTRL+Click if using Firefox) to view"><span id="3-6M2AX2K1492314940738">http://docs.oracle.com/cd/E18727_01/doc.121/e13522.pdf</span></a>
+ <br>Oracle Receivables User Guide
+ <br>Receivables Standard Reports and Listings &nbsp; &nbsp;
+ <br>10-21 
+</div></td></tr><tr style="white-space:nowrap;"><td id="3-14401996641">3-14401996641<br/>KHALED.OBEID@ORACLE.COM<br/>24-Mar-2017 03:32:40 PM</td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6M7Z59C">
+ On : &nbsp;12.2.4 version, Reports Issues
+ <br>
+ <br>ACTUAL BEHAVIOR &nbsp;
+ <br>---------------
+ <br>Aging 7 Buckets Report shows double amounts.
+ <br>
+ <br>EXPECTED BEHAVIOR
+ <br>-----------------------
+ <br>Aging 7 Buckets Report shows double amounts.
+ <br>
+ <br>STEPS
+ <br>-----------------------
+ <br>The issue can be reproduced at will with the following steps:
+ <br>1. Run the Aging 7 Buckets Report.
+ <br>
+ <br>BUSINESS IMPACT
+ <br>-----------------------
+ <br>The issue has the following business impact:
+ <br>Due to this issue, users cannot reconcile AR. 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6NVJGSG">
+ This issue is addressed in &lt;Bug 24521365&gt; AGING 7 BUCKETS BY ACCOUNT SHOWS DOUBLED THE BALANCE FOR SOME RECEIPTS. 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6NVJGSJ">
+ Aging 7 Buckets By Account Report shows double the balance for a receipt. Please note that the UNAPP and REC rows for have the same account. 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6NVJGTW">
+ Apply patch 24521365. 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6NVJGSM">
+ Apply patch 24521365. 
+</div></td><td><div style="overflow: auto; height: auto; background-color: rgb(135, 206, 235); color: black;" 960.7199999999999pxpx;'="" id="ndiv_3-6NVJ9YJ">
+ Knowledge Review completed. 
+</div></td></tr></table>
