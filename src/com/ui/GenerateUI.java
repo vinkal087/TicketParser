@@ -26,14 +26,15 @@ public class GenerateUI {
     public static void main(String[] args) {
         final JFrame frame = new JFrame("SR Ticket HTML Parser");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(1150,100));
-
+        frame.setMinimumSize(new Dimension(600,200));
+        frame.getContentPane().setBackground(new Color(255,255,255));
         JPanel controlPanel = new JPanel();
         frame.add(controlPanel);
         GridLayout layout = new GridLayout(0,2);
         layout.setHgap(20);
         layout.setVgap(20);
         controlPanel.setLayout(layout);
+        //controlPanel.setBackground(new Color(255,255,255));
         sourceBrowseButton(controlPanel);
         destinationBrowseButton(controlPanel);
         generateAndCancelButton(controlPanel,frame);
@@ -53,8 +54,10 @@ public class GenerateUI {
         sourceBrowseText.setOpaque(false);
 
         Button browseButton = new Button("Select Source Directory");
-        browseButton.setForeground(new Color(0,0,255));
-        browseButton.setSize(100, 8);
+        browseButton.setForeground(new Color(105,105,105));
+
+        browseButton.setBackground(new Color(255,255,240));
+        browseButton.setSize(100, 10);
         panel.setLayout(new FlowLayout());
 
         panel.add(browseButton, BorderLayout.WEST);
@@ -94,7 +97,8 @@ public class GenerateUI {
         destinationBrowseText.setOpaque(false);
 
         Button browseButton = new Button("Select Destination Directory");
-        browseButton.setForeground(new Color(0,0,255));
+        browseButton.setForeground(new Color(105,105,105));
+        browseButton.setBackground(new Color(255,255,240));
         browseButton.setSize(100, 8);
         panel.setLayout(new FlowLayout());
 
@@ -128,6 +132,7 @@ public class GenerateUI {
 
     private static void generateAndCancelButton(JPanel controlPanel,final JFrame frame ){
         JButton generateReportButton = new JButton("Generate HTMLs");
+        JLabel label=new JLabel();
         JButton cancelButton = new JButton("Cancel");
         ActionListener cancelListener = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -150,7 +155,10 @@ public class GenerateUI {
                                     JOptionPane.ERROR_MESSAGE);
                             return;
                         }
-                    Main.processDirectory(sourceDirectoryName,destDirectoryName);
+                        Main.processDirectory(sourceDirectoryName,destDirectoryName);
+                        controlPanel.remove(cancelButton);
+                        controlPanel.add(label);
+                        label.setText("Directory Processed Successfully");
                     }
                     catch(Exception e){
 
@@ -163,6 +171,7 @@ public class GenerateUI {
         };
         generateReportButton.addActionListener(listener);
 
+      //  controlPanel.add(label);
         controlPanel.add(generateReportButton, BorderLayout.NORTH);
 
         controlPanel.add(cancelButton, BorderLayout.SOUTH);
