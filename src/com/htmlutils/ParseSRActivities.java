@@ -123,10 +123,18 @@ public class ParseSRActivities {
         logger.info(title);
 
         String component = srHeader.select("input[name=componentDescription]").first().attr("value");
+        component = component.replaceAll("[/]"," ");
+        component = component.replaceAll("[&]"," ");
+        component = component.replaceAll("[.]"," ");
+        component = component.replaceAll("[,]"," ");
         srPojo.setComponent(component);
         logger.info(component);
 
         String subComponent = srHeader.select("input[name=subcomponentDescription]").first().attr("value");
+        subComponent = subComponent.replaceAll("[/]"," ");
+        subComponent = subComponent.replaceAll("[&]"," ");
+        subComponent = subComponent.replaceAll("[.]"," ");
+        subComponent = subComponent.replaceAll("[,]"," ");
         srPojo.setSubComponent(subComponent);
         logger.info(subComponent);
 

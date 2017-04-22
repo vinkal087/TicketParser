@@ -82,30 +82,30 @@ public class Main {
         List<String> activityList= Arrays.asList(bundle.getString("SR_FIRST_ACTIVITIES_LIST").split(","));
         DomContent[] arr=new  DomContent[activityList.size()+1];
 
-        arr[0]=td().with(getDomContentFromString(generateSrDetail(srPojo))).withId(srPojo.getSrNumber());
+        arr[0]=td().with(getDomContentFromString(generateSrDetail(srPojo))).withId(srPojo.getSrNumber()).withStyle("max-width:250px;vertical-align: top;");
         for(int i=0;i<activityList.size();i++){
             if(!srPojo.getTableData().containsKey(activityList.get(i))){
                 if(activityList.get(i).equalsIgnoreCase("ODM Issue Clarification") && srPojo.getTableData().containsKey("ODM Question")){
 
-                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData()));
+                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData())).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
 
                 }
                 else if(activityList.get(i).equalsIgnoreCase("ODM Solution/Action Plan") && srPojo.getTableData().containsKey("ODM Answer")){
 
-                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData()));
+                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData())).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
 
                 }
                 else {
-                    arr[i + 1] = td();
+                    arr[i + 1] = td().withStyle("max-width:350px;min-width:200px;vertical-align: top;");
                 }
             }
             else {
                 DomContent dom= getDomContentForKey(activityList.get(i),srPojo.getTableData());
-                arr[i + 1] = td().with(dom);
+                arr[i + 1] = td().with(dom).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
             }
         }
         return
-                tr().withStyle("white-space:nowrap;").with(arr).render().trim();
+                tr().with(arr).withStyle("word-wrap: break-word;").render().trim();
     }
 
     private static String generateSrDetail(SrActivityPojo srPojo){
