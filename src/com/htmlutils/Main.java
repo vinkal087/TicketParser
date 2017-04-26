@@ -3,11 +3,13 @@ package com.htmlutils;
 import com.com.pojo.SrActivityPojo;
 import j2html.tags.ContainerTag;
 import j2html.tags.DomContent;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -43,6 +45,7 @@ public class Main {
         }
         Map<String, String> htmlFileMap=generateHtmlTable(mainMap);
         createHtmlFiles(htmlFileMap,destination);
+        copyCssToDest(destination);
 
     }
 
@@ -51,7 +54,7 @@ public class Main {
         Map<String,String> htmlFileMap=new LinkedHashMap<>();
         while(fileNameKeys.hasNext()){
             String fileName=fileNameKeys.next();
-            String htmlTable="<table border=1>";
+            String htmlTable="<table>";
             Map<String,SrActivityPojo> mp=mainMap.get(fileName);
             Iterator<String> srNumbers = mp.keySet().iterator();
             htmlTable+=generateTableHeaders();
@@ -75,7 +78,7 @@ public class Main {
         for(int i=0;i<activityList.size();i++){
            arr[i+1]=th(activityList.get(i));
         }
-       return tr().withStyle("background-color:#FDF5E6;").with(arr).render().trim();
+       return tr().with(arr).render().trim();
     }
 
     private static String generateTableRow(SrActivityPojo srPojo){
@@ -87,21 +90,21 @@ public class Main {
             if(!srPojo.getTableData().containsKey(activityList.get(i))){
                 if(activityList.get(i).equalsIgnoreCase("ODM Issue Clarification") && srPojo.getTableData().containsKey("ODM Question")){
 
-                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData())).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
+                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData()));
 
                 }
                 else if(activityList.get(i).equalsIgnoreCase("ODM Solution/Action Plan") && srPojo.getTableData().containsKey("ODM Answer")){
 
-                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData())).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
+                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData()));
 
                 }
                 else {
-                    arr[i + 1] = td().withStyle("max-width:350px;min-width:200px;vertical-align: top;");
+                    arr[i + 1] = td();
                 }
             }
             else {
                 DomContent dom= getDomContentForKey(activityList.get(i),srPojo.getTableData());
-                arr[i + 1] = td().with(dom).withStyle("max-width:350px;min-width:200px;vertical-align: top;");
+                arr[i + 1] = td().with(dom);
             }
         }
         return
@@ -130,7 +133,8 @@ public class Main {
 
     private static String generateSRHtmlList(Map<String,SrActivityPojo> mp){
         Iterator<String> srNumbers = mp.keySet().iterator();
-        String html="<ul>";
+        String htmlHead="<html><head><link rel=\"stylesheet\" href=\"styles.css\"></head>";
+        String html=htmlHead+"<ul>";
 
         while(srNumbers.hasNext()){
             String srNumber = srNumbers.next();
@@ -138,7 +142,7 @@ public class Main {
             html+="<li><a href=\"#"+srNumber+"\">"+srPojo.getSrTitleDetails()+"</a></li>";
 
         }
-        return html+"</ul>";
+        return html+"</ul></html>";
     }
 
     private static DomContent getDomContentForKey(String key, Map<String,String> mp){
@@ -159,5 +163,15 @@ public class Main {
             }
         };
         return dom;
+    }
+
+    private static void copyCssToDest(String destination){
+        File source = new File("resources/styles.css");
+        File destinationFile = new File(destination+"/styles.css");
+        try {
+            FileUtils.copyFile(source, destinationFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

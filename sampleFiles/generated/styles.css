@@ -1,0 +1,12 @@
+table, th, td {
+   border: 1px solid black;
+}
+td{
+max-width:350px;
+min-width:200px;
+vertical-align: top;
+}
+
+th{
+	background-color: #FDF5E6;
+}
