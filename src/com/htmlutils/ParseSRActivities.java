@@ -96,7 +96,7 @@ public class ParseSRActivities {
         if(wipeNodeDiv.select("[dojoattachpoint=containerNode]").size()==0) return "";
         Element containerNodeDiv=wipeNodeDiv.select("[dojoattachpoint=containerNode]").get(0);
         if(containerNodeDiv.select("div").size()==0) return "";
-        Element containerNodeDivTextDiv = containerNodeDiv.child(1);
+        Element containerNodeDivTextDiv = containerNodeDiv.child(containerNodeDiv.children().size()-1);
         return  containerNodeDivTextDiv.toString();
     }
 
