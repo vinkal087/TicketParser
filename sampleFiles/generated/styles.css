@@ -10,3 +10,24 @@ vertical-align: top;
 th{
 	background-color: #FDF5E6;
 }
+
+#ODMIssueClarification{
+       min-width:500px;
+ }
+
+#ODMCauseDetermination{
+        min-width:500px;
+  }
+
+#ODMCauseJustification{
+  min-width:500px;
+}
+#ODMSolution/ActionPlan{
+    min-width:500px;
+}
+#ODMProposedSolution{
+      min-width:500px;
+}
+#ODMKnowledgeContent{
+        min-width:500px;
+  }

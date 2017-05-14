@@ -87,24 +87,25 @@ public class Main {
 
         arr[0]=td().with(getDomContentFromString(generateSrDetail(srPojo))).withId(srPojo.getSrNumber()).withStyle("max-width:250px;vertical-align: top;");
         for(int i=0;i<activityList.size();i++){
+            String activityListId=activityList.get(i).replaceAll("[[^a-z,^A-Z]]*","");
             if(!srPojo.getTableData().containsKey(activityList.get(i))){
                 if(activityList.get(i).equalsIgnoreCase("ODM Issue Clarification") && srPojo.getTableData().containsKey("ODM Question")){
 
-                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData()));
+                    arr[i + 1] = td().with(getDomContentForKey("ODM Question",srPojo.getTableData())).withId(activityListId);
 
                 }
                 else if(activityList.get(i).equalsIgnoreCase("ODM Solution/Action Plan") && srPojo.getTableData().containsKey("ODM Answer")){
 
-                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData()));
+                        arr[i + 1] = td().with(getDomContentForKey("ODM Answer",srPojo.getTableData())).withId(activityListId);
 
                 }
                 else {
-                    arr[i + 1] = td();
+                    arr[i + 1] = td().withId(activityListId);
                 }
             }
             else {
                 DomContent dom= getDomContentForKey(activityList.get(i),srPojo.getTableData());
-                arr[i + 1] = td().with(dom);
+                arr[i + 1] = td().with(dom).withId(activityListId);
             }
         }
         return
